@@ -1,0 +1,21 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
+enum LEDS_PINS
+{
+	RED_LED_PIN = 12,
+	GREEN_LED_PIN
+};
+
+enum BUTTONS_PINS
+{
+	BUTTON_PIN = 5,
+	INCREMENT_BUTTON_PIN,
+	DECREMENT_BUTTON_PIN
+};
+
+#define DEBOUNCE_TIME 								150
+
+#define BUTTON_LED_TASK_RECURRENCE 					10
+
+#endif
