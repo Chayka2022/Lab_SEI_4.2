@@ -4,13 +4,15 @@
 #include <Arduino.h>
 #include <config.h>
 #include <Arduino_FreeRTOS.h>
-#include <semphr.h>
+#include <task.h>
 
 void freeRTOSInit(void);
 
+void motorTaskInit(void);
+void motorTask(void *pvParameters);
 
-void buttonLedTaskSetup(void);
-void buttonLedTask(void *pvParameters);
+void userInterfaceTaskInit(void);
+void userInterfaceTask(void *pvParameters);
 
 
 #endif
