@@ -104,3 +104,27 @@ void dcMotorEmergencyStop(DCMotor_t *motor)
 	motor->setDirection(DC_MOTOR_STOP);
 	motor->wasModified = true;
 }
+
+void dcMotorSetMaxSpeed(DCMotor_t *motor)
+{
+	motor->setSpeed(MAX_SPEED);
+	motor->wasModified = true;
+}
+
+void dcMotorSpeedUp(DCMotor_t *motor)
+{
+	if (motor->speed < MAX_SPEED)
+	{
+		motor->speed += CHANGE_SPEED_STEP;
+		motor->wasModified = true;
+	}
+}
+
+void dcMotorSpeedDown(DCMotor_t *motor)
+{
+	if (motor->speed > MIN_SPEED)
+	{
+		motor->speed -= CHANGE_SPEED_STEP;
+		motor->wasModified = true;
+	}
+}

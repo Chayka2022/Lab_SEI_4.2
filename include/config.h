@@ -1,6 +1,8 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
+#define BAUDRATE 115200
+
 enum LEDS_PINS
 {
 	RED_LED_PIN = 12,

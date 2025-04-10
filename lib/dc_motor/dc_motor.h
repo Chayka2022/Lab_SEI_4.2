@@ -9,6 +9,8 @@
 #define MAX_PWM 255
 #define MIN_PWM 0
 
+#define CHANGE_SPEED_STEP 10
+
 #define ABS(x) ((x) < 0 ? -(x) : (x))
 
 typedef enum
@@ -37,7 +39,7 @@ void dcMotorInit(DCMotor_t *motor,
 
 void dcMotorCycleCall(DCMotor_t *motor);
 
-void dcMotorSetSpeed(DCMotor_t *motor, uint8_t value);
+void dcMotorSetSpeed(DCMotor_t *motor, int8_t value);
 uint8_t dcMotorGetSpeed(DCMotor_t *motor);
 void dcMotorSetDirection(DCMotor_t *motor, uint8_t direction);
 uint8_t dcMotorGetDirection(DCMotor_t *motor);
@@ -46,6 +48,9 @@ void dcMotorDisable(DCMotor_t *motor);
 uint8_t dcMotorGetState(DCMotor_t *motor);
 void dcMotorStop(DCMotor_t *motor);
 void dcMotorEmergencyStop(DCMotor_t *motor);
+void dcMotorSetMaxSpeed(DCMotor_t *motor);
+void dcMotorSpeedUp(DCMotor_t *motor);
+void dcMotorSpeedDown(DCMotor_t *motor);
 
 
 

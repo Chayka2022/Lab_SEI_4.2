@@ -2,6 +2,6 @@
 #define MAIN_H
 
 #include <Arduino.h>
-#include <scheduler.h>
+#include <tasks.h>
 
 #endif
