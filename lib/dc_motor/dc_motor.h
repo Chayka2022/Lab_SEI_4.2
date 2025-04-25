@@ -2,16 +2,15 @@
 #define DC_MOTOR_H
 
 #include <stdint.h>
+#include <stdlib.h>
 
 #define MAX_SPEED 100
-#define MIN_SPEED 0
 
+#define MIN_SPEED -100
 #define MAX_PWM 255
 #define MIN_PWM 0
 
 #define CHANGE_SPEED_STEP 10
-
-#define ABS(x) ((x) < 0 ? -(x) : (x))
 
 typedef enum
 {
@@ -22,15 +21,17 @@ typedef enum
 
 typedef struct
 {
+	uint8_t pwm; // PWM pin
 	uint8_t enable;
 	uint8_t direction;
-	uint8_t speed; 
+	int8_t speed; 
 	uint8_t wasModified;  // Flag to check if the state was modified
 	void (*setSpeed)(uint8_t value);
 	void (*setDirection)(uint8_t value);
 } DCMotor_t;
 
 void dcMotorInit(DCMotor_t *motor,
+				uint8_t pwm,
 				uint8_t enable,
 				uint8_t direction,
 				void (*speed)(uint8_t value),
@@ -40,7 +41,7 @@ void dcMotorInit(DCMotor_t *motor,
 void dcMotorCycleCall(DCMotor_t *motor);
 
 void dcMotorSetSpeed(DCMotor_t *motor, int8_t value);
-uint8_t dcMotorGetSpeed(DCMotor_t *motor);
+int8_t dcMotorGetSpeed(DCMotor_t *motor);
 void dcMotorSetDirection(DCMotor_t *motor, uint8_t direction);
 uint8_t dcMotorGetDirection(DCMotor_t *motor);
 void dcMotorEnable(DCMotor_t *motor);
@@ -51,7 +52,8 @@ void dcMotorEmergencyStop(DCMotor_t *motor);
 void dcMotorSetMaxSpeed(DCMotor_t *motor);
 void dcMotorSpeedUp(DCMotor_t *motor);
 void dcMotorSpeedDown(DCMotor_t *motor);
-
+uint8_t dcMotorComputeDirection(int8_t speed);
+int16_t dcMotorConvertSpeedToPwm(int16_t speed);
 
 
 #endif // DC_MOTOR_H

@@ -8,6 +8,8 @@
 #include "config.h"
 #include "own_stdio.h"
 #include "control.h"
+#include "hbridge.h"
+#include "dc_motor.h"
 
 void tasksSetup(void);
 

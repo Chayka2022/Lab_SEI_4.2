@@ -3,6 +3,8 @@
 
 #include <stdint.h>
 #include <stdlib.h>
+#include <config.h>
+#include <own_stdio.h>
 
 #define HBRIDGE_PWM_MAX 255
 #define HBRIDGE_PWM_MIN 0
@@ -34,9 +36,9 @@ void hbridgeInit(HBridge_t *hbridge,
 				void (*pinWrite)(uint8_t pin, uint8_t value)
 			);
 
-void hbridgeSetPwm(HBridge_t *hbridge, int16_t value);
+void hbridgeSetPwm(HBridge_t *hbridge, int8_t value);
 uint8_t hbridgeGetPwm(HBridge_t *hbridge);
-void hbridgeSetDirection(HBridge_t *hbridge, HBridgeDirection_t direction);
+void hbridgeSetDirection(HBridge_t *hbridge, uint8_t direction);
 uint8_t hbridgeGetDirection(HBridge_t *hbridge);
 void hbridgeEnable(HBridge_t *hbridge);
 void hbridgeDisable(HBridge_t *hbridge);

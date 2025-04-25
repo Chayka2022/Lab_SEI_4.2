@@ -3,6 +3,14 @@
 
 #define BAUDRATE 115200
 
+#define ABS(x) ((x) < 0 ? -(x) : (x))
+
+#define MAX_SPEED 100
+#define MIN_SPEED -100
+
+#define MAX_PWM 255
+#define MIN_PWM 0
+
 enum LEDS_PINS
 {
 	RED_LED_PIN = 12,
@@ -14,6 +22,13 @@ enum BUTTONS_PINS
 	BUTTON_PIN = 5,
 	INCREMENT_BUTTON_PIN,
 	DECREMENT_BUTTON_PIN
+};
+
+enum HBRRIDGE_PINS
+{
+	HBRIDGE_ENABLE_PIN = 8,
+	HBRIDGE_IN1_PIN,
+	HBRIDGE_IN2_PIN
 };
 
 #define DEBOUNCE_TIME 								150
