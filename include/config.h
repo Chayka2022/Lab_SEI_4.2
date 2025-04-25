@@ -11,6 +11,9 @@
 #define MAX_PWM 255
 #define MIN_PWM 0
 
+#define HBRIDGE_HIGH	1
+#define HBRIDGE_LOW		0
+
 enum LEDS_PINS
 {
 	RED_LED_PIN = 12,

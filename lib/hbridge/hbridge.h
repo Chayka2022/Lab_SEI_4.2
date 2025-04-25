@@ -6,12 +6,6 @@
 #include <config.h>
 #include <own_stdio.h>
 
-#define HBRIDGE_PWM_MAX 255
-#define HBRIDGE_PWM_MIN 0
-
-#define HBRIDGE_HIGH	1
-#define HBRIDGE_LOW		0
-
 typedef enum
 {
 	HBRIDGE_BACKWARD = 0,
