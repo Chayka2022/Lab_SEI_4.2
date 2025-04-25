@@ -3,14 +3,7 @@
 
 #include <stdint.h>
 #include <stdlib.h>
-
-#define MAX_SPEED 100
-
-#define MIN_SPEED -100
-#define MAX_PWM 255
-#define MIN_PWM 0
-
-#define CHANGE_SPEED_STEP 10
+#include "config.h"
 
 typedef enum
 {
@@ -21,11 +14,11 @@ typedef enum
 
 typedef struct
 {
-	uint8_t pwm; // PWM pin
+	uint8_t pwm;
 	uint8_t enable;
 	uint8_t direction;
 	int8_t speed; 
-	uint8_t wasModified;  // Flag to check if the state was modified
+	uint8_t wasModified;
 	void (*setSpeed)(uint8_t value);
 	void (*setDirection)(uint8_t value);
 } DCMotor_t;
@@ -56,4 +49,4 @@ uint8_t dcMotorComputeDirection(int8_t speed);
 int16_t dcMotorConvertSpeedToPwm(int16_t speed);
 
 
-#endif // DC_MOTOR_H
+#endif // !DC_MOTOR_H

@@ -46,7 +46,6 @@ void hbridgeSetPwm(HBridge_t *hbridge, int8_t value)
         hbridge->pinWrite(hbridge->in_2, HBRIDGE_LOW);
     }
     hbridge->pinWrite(hbridge->enable, ABS(value)); // Set PWM value
-    //hbridge->pwmValue = value;
 }
 
 uint8_t hbridgeGetPwm(HBridge_t *hbridge)
@@ -57,15 +56,15 @@ uint8_t hbridgeGetPwm(HBridge_t *hbridge)
 void hbridgeSetDirection(HBridge_t *hbridge, uint8_t direction)
 {
 	//find the same value of direction in the enum
-	if (direction == 0)
+	if (direction == HBRIDGE_BACKWARD)
 	{
 		hbridge->direction = HBRIDGE_BACKWARD;
 	}
-	else if (direction == 1)
+	else if (direction == HBRIDGE_FORWARD)
 	{
 		hbridge->direction = HBRIDGE_FORWARD;
 	}
-	else if (direction == 2)
+	else if (direction == HBRIDGE_STOP)
 	{
 		hbridge->direction = HBRIDGE_STOP;
 	}
@@ -95,7 +94,6 @@ uint8_t hbridgeGetState(HBridge_t *hbridge)
 
 void hbridgeStop(HBridge_t *hbridge)
 {
-	// TODO: Add function to stop the motor
 	// Set both inputs to low to stop the motor
 	hbridge->pinWrite(hbridge->in_1, HBRIDGE_LOW);
 	hbridge->pinWrite(hbridge->in_2, HBRIDGE_LOW);
@@ -104,9 +102,9 @@ void hbridgeStop(HBridge_t *hbridge)
 
 void hbridgeEmergencyStop(HBridge_t *hbridge)
 {
-	// TODO: Add function to stop the motor
 	// Set both inputs to low to stop the motor
 	hbridge->pinWrite(hbridge->in_1, HBRIDGE_LOW);
 	hbridge->pinWrite(hbridge->in_2, HBRIDGE_LOW);
+	hbridge->pwmValue = 0;
 }
 

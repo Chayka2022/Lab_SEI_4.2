@@ -42,4 +42,4 @@ void hbridgeEmergencyStop(HBridge_t *hbridge);
 
 
 
-#endif // HBRIDGE_H
+#endif // !HBRIDGE_H

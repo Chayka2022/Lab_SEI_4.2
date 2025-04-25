@@ -78,7 +78,7 @@ void motorTask(void *pvParameters)
 		needInit = false;
 	}
 
-	// Motor task code goes here
+	// Motor loop task
 	for(;;)
 	{
 		dcMotorCycleCall(&motor);

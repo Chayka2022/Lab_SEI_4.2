@@ -5,27 +5,16 @@
 
 #define ABS(x) ((x) < 0 ? -(x) : (x))
 
-#define MAX_SPEED 100
-#define MIN_SPEED -100
+#define MAX_SPEED 			100
+#define MIN_SPEED 			-100
 
-#define MAX_PWM 255
-#define MIN_PWM 0
+#define MAX_PWM 			255
+#define MIN_PWM 			0
 
-#define HBRIDGE_HIGH	1
-#define HBRIDGE_LOW		0
+#define CHANGE_SPEED_STEP 	10
 
-enum LEDS_PINS
-{
-	RED_LED_PIN = 12,
-	GREEN_LED_PIN
-};
-
-enum BUTTONS_PINS
-{
-	BUTTON_PIN = 5,
-	INCREMENT_BUTTON_PIN,
-	DECREMENT_BUTTON_PIN
-};
+#define HBRIDGE_HIGH		1
+#define HBRIDGE_LOW			0
 
 enum HBRRIDGE_PINS
 {
@@ -33,9 +22,5 @@ enum HBRRIDGE_PINS
 	HBRIDGE_IN1_PIN,
 	HBRIDGE_IN2_PIN
 };
-
-#define DEBOUNCE_TIME 								150
-
-#define BUTTON_LED_TASK_RECURRENCE 					10
 
 #endif

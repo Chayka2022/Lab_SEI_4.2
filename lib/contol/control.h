@@ -28,4 +28,4 @@ void controlExecute(void);
 void controlGetCommand(void);
 void controlPrintHelp(DCMotor_t *motor);
 
-#endif
+#endif // !CONTROL_H
